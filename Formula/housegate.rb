@@ -1,26 +1,26 @@
 class Housegate < Formula
   desc "ClickHouse native TCP proxy"
   homepage "https://github.com/housegate/housegate"
-  version "0.2.0"
+  version "0.3.0"
   license "Apache-2.0"
 
   if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/housegate/housegate/releases/download/v0.2.0/housegate-v0.2.0-darwin-arm64"
-    sha256 "165a666196c7e07b90d0366b16362ef64f856ff56ae83193c0a0eab62deac687"
+    url "https://github.com/housegate/housegate/releases/download/v0.3.0/housegate-v0.3.0-darwin-arm64"
+    sha256 "cec3114cfa1905acbd27a9f0a1f8058973ec014fc94ca2a7f7ab2cfc54253c13"
   elsif OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/housegate/housegate/releases/download/v0.2.0/housegate-v0.2.0-linux-amd64"
-    sha256 "7d837e08e47f2e2be6f4a8078526b820bfcc220fe1f4ca26e2f89eb9adaf0531"
+    url "https://github.com/housegate/housegate/releases/download/v0.3.0/housegate-v0.3.0-linux-amd64"
+    sha256 "24a7a9a74b847acc733cfeea818cdaed47e3176c36d7ac9c3d4bdc391bdd9f12"
   end
 
   def install
     if OS.mac?
-      bin.install "housegate-v0.2.0-darwin-arm64" => "housegate"
+      bin.install "housegate-v0.3.0-darwin-arm64" => "housegate"
     else
-      bin.install "housegate-v0.2.0-linux-amd64" => "housegate"
+      bin.install "housegate-v0.3.0-linux-amd64" => "housegate"
     end
   end
 
   test do
-    assert_match "secret-keygen", shell_output("#{bin}/housegate 2>&1", 1)
+    assert_match "housegate v0.3.0", shell_output("#{bin}/housegate --version")
   end
 end
