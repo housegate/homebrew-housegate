@@ -4,22 +4,22 @@ class Housegate < Formula
   license "Apache-2.0"
 
   if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/housegate/housegate/releases/download/v0.31.1/housegate-v0.31.1-darwin-arm64"
-    sha256 "e1eadd1198e675477aa202b587aaed33774a69b8cf11b60833f9fdefd7e29fbc"
+    url "https://github.com/housegate/housegate/releases/download/v0.32.0/housegate-v0.32.0-darwin-arm64"
+    sha256 "95cd9bd1626ba564c78e230d77a81e591912c4fa7905e2e78daad1d8f3917355"
   elsif OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/housegate/housegate/releases/download/v0.31.1/housegate-v0.31.1-linux-amd64"
-    sha256 "0a365247471c228f07204b5cfed5c4972cacef321c5d50ece21e4e9b175f33be"
+    url "https://github.com/housegate/housegate/releases/download/v0.32.0/housegate-v0.32.0-linux-amd64"
+    sha256 "7f77314eff78d2150cfb4b4c57478874224b888dc994e963b9bd15f2f47e9501"
   end
 
   def install
     if OS.mac?
-      bin.install "housegate-v0.31.1-darwin-arm64" => "housegate"
+      bin.install "housegate-v0.32.0-darwin-arm64" => "housegate"
     else
-      bin.install "housegate-v0.31.1-linux-amd64" => "housegate"
+      bin.install "housegate-v0.32.0-linux-amd64" => "housegate"
     end
   end
 
   test do
-    assert_match "housegate v0.31.1", shell_output("#{bin}/housegate --version")
+    assert_match "housegate v0.32.0", shell_output("#{bin}/housegate --version")
   end
 end
